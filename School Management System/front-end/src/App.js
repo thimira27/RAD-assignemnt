@@ -8,11 +8,17 @@ import BookNavBar from './Component/C_book/BookNavBar';
 import LabNavBar from './Component/C_lab/LabNavBar';
 import SubjectNavBar from './Component/C_subject/SubjectNavBar';
 import TeacherNavBar from './Component/C_teacher/TeacherNavBar';
+
+
 import AllStudents from './Component/C_student/AllStudents';
+import AddStudent from './Component/C_student/AddStudent';
+import EditStudent from './Component/C_student/EditStudent';
+
 import AllTeachers from './Component/C_teacher/AllTeachers';
 import AllSubjects from './Component/C_subject/AllSubjects';
 import AllLabs from './Component/C_lab/AllLabs';
 import AllBooks from './Component/C_book/AllBooks';
+import AddBook from './Component/C_book/AddBook';
 import NotFound from './Component/NotFound'; 
 import CodeForInterview from './Component/CodeForInterview';
 import Login from './Component/account/login';
@@ -43,10 +49,19 @@ function App() {
             <Route path="/" element={<NavBar/> } />
             <Route path="/" element={<CodeForInterview /> } />
         </Route>
+
+
         <Route path='/students' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/students" element={<StudentNavBar/> } />
-            <Route path="/students" element={<AllStudents /> } />
+            <Route path="/students" element={<><StudentNavBar/><AllStudents /></> } />
         </Route>
+        <Route path='/addStudent' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/addStudent" element={ <><StudentNavBar/><AddStudent /></> } />
+        </Route>
+        <Route path='/editStudent/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/editStudent/:id" element={ <><StudentNavBar/><EditStudent /></> } />
+        </Route>
+        
+        
         <Route path='/teachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/teachers" element={<TeacherNavBar />} />
             <Route path="/teachers" element={<AllTeachers /> } />
@@ -60,8 +75,10 @@ function App() {
             <Route path="/labs" element={<AllLabs /> } />
         </Route>
         <Route path='/books' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/books" element={<BookNavBar />} />
-            <Route path="/books" element={<AllBooks /> } />
+            <Route path="/books" element={<><BookNavBar /><AllBooks /></>} />
+        </Route>
+        <Route path='/addBook' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/addBook" element={<><BookNavBar /><AddBook /></>} />
         </Route>
         <Route path='/*' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path='/*' element={<NotFound />} />

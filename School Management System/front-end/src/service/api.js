@@ -22,6 +22,26 @@ export const editUser = async (id, user) => {
     return await axios.put(`${usersUrl}/${id}`, user)
 }
 
+export const addStudent = async (student) => {
+    return await axios.post(`${usersUrl}/student/addStudent`, student);
+}
+
+export const getStudents = async (id) => {
+    id = id || '';
+    return await axios.get(`${usersUrl}/student/all/${id}`);
+}
+
+export const deleteStudent = async (id) => {
+    return await axios.delete(`${usersUrl}/student/${id}`);
+}
+
+export const editStudent = async (id, student) => {
+    return await axios.put(`${usersUrl}/student/${id}`, student)
+}
+
+export const addBook = async (book) => {
+    return await axios.post(`${usersUrl}/addBook`, book);
+}
 
 const axiosInstance = axios.create({
     baseURL: usersUrl,

@@ -1,6 +1,6 @@
 import react, { useState, useEffect } from 'react';
 import { Table, TableHead, TableCell, Paper, TableRow, TableBody, Button, styled } from '@mui/material'
-import { getUsers, deleteUser } from '../../service/api';
+import {getStudents, deleteStudent } from '../../service/api';
 import { Link } from 'react-router-dom';
 
 const StyledTable = styled(Table)`
@@ -22,21 +22,21 @@ const TRow = styled(TableRow)`
     }
 `;
 
-const AllUsers = () => {
-    const [users, setUsers] = useState([]);
+const AllStudents = () => {
+    const [students, setStudents] = useState([]);
     
     useEffect(() => {
-        getAllUsers();
+        getAllStudents();
     }, []);
 
-    const deleteUserData = async (id) => {
-        await deleteUser(id);
-        getAllUsers();
+    const deleteStudentData = async (id) => {
+        await deleteStudent(id);
+        getAllStudents();
     }
 
-    const getAllUsers = async () => {
-        let response = await getUsers();
-        setUsers(response.data);
+    const getAllStudents = async () => {
+        let response = await getStudents();
+        setStudents(response.data);
     }
 
     return (
@@ -45,23 +45,27 @@ const AllUsers = () => {
                 <THead>
                     <TableCell>Id</TableCell>
                     <TableCell>Name</TableCell>
-                    <TableCell>Username</TableCell>
+                    <TableCell>Date of Birth</TableCell>
                     <TableCell>Email</TableCell>
                     <TableCell>Phone</TableCell>
+                    <TableCell>Address</TableCell>
+                    <TableCell>Gender</TableCell>
                     <TableCell></TableCell>
                 </THead>
             </TableHead>
             <TableBody>
-                {users.map((user) => (
-                    <TRow key={user.id}>
-                        <TableCell>{user._id}</TableCell> {/* change it to user.id to use JSON Server */}
-                        <TableCell>{user.name}</TableCell>
-                        <TableCell>{user.username}</TableCell>
-                        <TableCell>{user.email}</TableCell>
-                        <TableCell>{user.phone}</TableCell>
+                {students.map((student) => (
+                    <TRow key={student.id}>
+                        <TableCell>{student._id}</TableCell> {/* change it to user.id to use JSON Server */}
+                        <TableCell>{student.name}</TableCell>
+                        <TableCell>{student.dateofbirth}</TableCell>
+                        <TableCell>{student.email}</TableCell>
+                        <TableCell>{student.phone}</TableCell>
+                        <TableCell>{student.address}</TableCell>
+                        <TableCell>{student.gender}</TableCell>
                         <TableCell>
-                            <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}>Edit</Button> {/* change it to user.id to use JSON Server */}
-                            <Button color="secondary" variant="contained" onClick={() => deleteUserData(user._id)}>Delete</Button> {/* change it to user.id to use JSON Server */}
+                            <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/editStudent/${student._id}`}>Edit</Button>
+                            <Button color="secondary" variant="contained" onClick={() => deleteStudentData(student._id)}>Delete</Button> {/* change it to user.id to use JSON Server */}
                         </TableCell>
                     </TRow>
                 ))}
@@ -70,4 +74,4 @@ const AllUsers = () => {
     )
 }
 
-export default AllUsers;
+export default AllStudents;
