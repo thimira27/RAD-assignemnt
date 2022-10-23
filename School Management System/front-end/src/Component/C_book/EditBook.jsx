@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getUsers, editUser } from '../Service/api';
+import { getBooks, editBook } from '../../Service/api';
 
 const initialValue = {
     name: '',
-    username: '',
-    email: '',
-    phone: ''
+    isbn: '',
+    author: '',
+    copies: ''
 }
 
 const Container = styled(FormGroup)`
@@ -18,56 +18,56 @@ const Container = styled(FormGroup)`
         margin-top: 20px
 `;
 
-const EditUser = () => {
-    const [user, setUser] = useState(initialValue);
-    const { name, username, email, phone } = user;
+const EditBook = () => {
+    const [book, setBook] = useState(initialValue);
+    const { name, isbn, author, copies } = book;
     const { id } = useParams();
     
     let navigate = useNavigate();
 
     useEffect(() => {
-        loadUserDetails();
+        loadBookDetails();
     }, []);
 
-    const loadUserDetails = async() => {
-        const response = await getUsers(id);
-        setUser(response.data);
+    const loadBookDetails = async() => {
+        const response = await getBooks(id);
+        setBook(response.data);
     }
 
-    const editUserDetails = async() => {
-        const response = await editUser(id, user);
+    const editBookDetails = async() => {
+        const response = await editBook(id, book);
         navigate('/all');
     }
 
     const onValueChange = (e) => {
         console.log(e.target.value);
-        setUser({...user, [e.target.name]: e.target.value})
+        setBook({...book, [e.target.name]: e.target.value})
     }
 
     return (
         <Container injectFirst>
             <Typography variant="h4">Edit Information</Typography>
             <FormControl>
-                <InputLabel htmlFor="my-input">Name</InputLabel>
+                <InputLabel htmlFor="my-input">Book Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Username</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" aria-describedby="my-helper-text" />
+                <InputLabel htmlFor="my-input">ISBN No.</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='isbn' value={isbn} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Email</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" aria-describedby="my-helper-text" />
+                <InputLabel htmlFor="my-input">Author</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='author' value={author} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Phone</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" aria-describedby="my-helper-text" />
+                <InputLabel htmlFor="my-input">No. of Copies</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='copies' value={copies} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <Button variant="contained" color="primary" onClick={() => editUserDetails()}>Edit User</Button>
+                <Button variant="contained" color="primary" onClick={() => editBookDetails()}>Edit Book</Button>
             </FormControl>
         </Container>
     )
 }
 
-export default EditUser;
+export default EditBook;

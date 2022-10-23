@@ -1,13 +1,15 @@
 import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
-import { addUser } from '../Service/api';
+import { addStudent } from '../../service/api';
 import { useNavigate } from 'react-router-dom';
 
 const initialValue = {
     name: '',
-    username: '',
+    dateofbirth: '',
     email: '',
-    phone: ''
+    phone: '',
+    address: '',
+    gender: ''
 }
 
 const Container = styled(FormGroup)`
@@ -17,31 +19,31 @@ const Container = styled(FormGroup)`
         margin-top: 20px;
 `;
 
-const AddUser = () => {
-    const [user, setUser] = useState(initialValue);
-    const { name, username, email, phone } = user;
+const AddStudent = () => {
+    const [student, setStudent] = useState(initialValue);
+    const { name, dateofbirth, email, phone, address, gender } = student;
     
     let navigate = useNavigate();
 
     const onValueChange = (e) => {
-        setUser({...user, [e.target.name]: e.target.value})
+        setStudent({...student, [e.target.name]: e.target.value})
     }
 
-    const addUserDetails = async() => {
-        await addUser(user);
-        navigate('/all');
+    const addStudentDetails = async() => {
+        await addStudent(student);
+        navigate('/students');
     }
 
     return (
         <Container>
-            <Typography variant="h4">Add User</Typography>
+            <Typography variant="h4">Add Student</Typography>
             <FormControl>
                 <InputLabel htmlFor="my-input">Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Username</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" />
+                <InputLabel htmlFor="my-input">Date of birth</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='dateofbirth' value={dateofbirth} id="my-input" />
             </FormControl>
             <FormControl>
                 <InputLabel htmlFor="my-input">Email</InputLabel>
@@ -52,10 +54,18 @@ const AddUser = () => {
                 <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" />
             </FormControl>
             <FormControl>
-                <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>
+                <InputLabel htmlFor="my-input">Address</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='address' value={address} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">Gender</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='gender' value={gender} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <Button variant="contained" color="primary" onClick={() => addStudentDetails()}>Add Student</Button>
             </FormControl>
         </Container>
     )
 }
 
-export default AddUser;
+export default AddStudent;
