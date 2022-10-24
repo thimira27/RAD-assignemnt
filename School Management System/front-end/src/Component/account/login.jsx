@@ -8,7 +8,8 @@ import { DataContext } from '../../context/DataProvider';
 
 const Component = styled(Box)`
     width: 400px;
-    margin: auto;
+    margin-top: 50px;
+    margin-left: 450px;
     box-shadow: 5px 2px 5px 2px rgb(0 0 0/ 0.6);
 `;
 
@@ -80,7 +81,7 @@ const Login = ({ isUserAuthenticated }) => {
     const navigate = useNavigate();
     const { setAccount } = useContext(DataContext);
 
-    const imageURL = 'https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png';
+    const imageURL = '../../Assets/Images/youtube.png';
 
     useEffect(() => {
         showError(false);
@@ -128,8 +129,8 @@ const Login = ({ isUserAuthenticated }) => {
 
     return (
         <Component>
+            {/* <<imageURL />> */}
             <Box>
-                <Image src={imageURL} alt="blog" />
                 {
                     account === 'login' ?
                         <Wrapper>
