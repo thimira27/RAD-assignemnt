@@ -1,13 +1,14 @@
 import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
-import { addUser } from '../Service/api';
+import { addLabItem } from '../../service/api';
 import { useNavigate } from 'react-router-dom';
 
 const initialValue = {
+    itemCode:'',
     name: '',
-    username: '',
-    email: '',
-    phone: ''
+    description: '',
+    count: '',
+    labno: ''
 }
 
 const Container = styled(FormGroup)`
@@ -17,45 +18,49 @@ const Container = styled(FormGroup)`
         margin-top: 20px;
 `;
 
-const AddUser = () => {
-    const [user, setUser] = useState(initialValue);
-    const { name, username, email, phone } = user;
+const AddLabItem = () => {
+    const [labitem, setLabItem] = useState(initialValue);
+    const { itemCode, name, description, count, labno} = labitem;
     
     let navigate = useNavigate();
 
     const onValueChange = (e) => {
-        setUser({...user, [e.target.name]: e.target.value})
+        setLabItem({...labitem, [e.target.name]: e.target.value})
     }
 
-    const addUserDetails = async() => {
-        await addUser(user);
-        navigate('/all');
+    const addLabItemDetails = async() => {
+        await addLabItem(labitem);
+        navigate('/lab_items');
     }
 
     return (
         <Container>
             <Typography variant="h4">Add User</Typography>
             <FormControl>
-                <InputLabel htmlFor="my-input">Name</InputLabel>
+                <InputLabel htmlFor="my-input">Item Code</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='itemCode' value={itemCode} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">Item Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Username</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" />
+                <InputLabel htmlFor="my-input">Description</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='description' value={description} id="my-input" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Email</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input"/>
+                <InputLabel htmlFor="my-input">Item Count</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='count' value={count} id="my-input"/>
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Phone</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" />
+                <InputLabel htmlFor="my-input">Assigned Lab</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='labno' value={labno} id="my-input" />
             </FormControl>
             <FormControl>
-                <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>
+                <Button variant="contained" color="primary" onClick={() => addLabItemDetails()}>Add Lab Item</Button>
             </FormControl>
         </Container>
     )
 }
 
-export default AddUser;
+export default AddLabItem;

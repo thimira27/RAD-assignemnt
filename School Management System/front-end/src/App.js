@@ -25,9 +25,9 @@ import AddSubjects from './Component/C_subject/AddSubject';
 import EditSubject from './Component/C_subject/EditSubject';
 
 
-// import AllLabs from './Component/C_lab/AllLabs';
-// import AddLab from './Component/C_lab/AddLab';
-// import EditLab from './Component/C_lab/EditLab';
+import AllLabs from './Component/C_lab/AllLabs';
+import AddLab from './Component/C_lab/AddLab';
+import EditLab from './Component/C_lab/EditLab';
 
 
 import AllBooks from './Component/C_book/AllBooks';
@@ -107,7 +107,7 @@ function App() {
             <Route path="/edit_Subject/:id" element={ <><SubjectNavBar /><EditSubject /></> } />
         </Route>
 
-        {/*<Route path='/lab_items' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+        <Route path='/lab_items' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/lab_items" element={<><LabNavBar /><AllLabs /></>} />
         </Route>
         <Route path='/addlabitems' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
@@ -116,7 +116,7 @@ function App() {
         <Route path='/editLabItem/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/editLabItem/:id" element={ <><LabNavBar /><EditLab /></> } />
         </Route>
-         */}
+        
         
         <Route path='/*' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path='/*' element={<NotFound />} />
