@@ -61,11 +61,8 @@ function App() {
       <Route path='/account' element={<Login isUserAuthenticated={isUserAuthenticated} />} />
         {/* <Route path="/register" element={<Register/>} /> */}
         <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/" element={<NavBar/> } />
-            <Route path="/" element={<CodeForInterview /> } />
+            <Route path="/" element={<><NavBar/><CodeForInterview /></> } />
         </Route>
-
-
         <Route path='/students' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/students" element={<><StudentNavBar/><AllStudents /></> } />
         </Route>

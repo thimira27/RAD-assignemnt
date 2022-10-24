@@ -22,6 +22,7 @@ const NavBar = () => {
                 <Tabs to="/" exact>XtremeFocus</Tabs>
                 <Tabs to="/teachers" exact>All Teachers</Tabs>
                 <Tabs to="/addteachers" exact>Add Teachers</Tabs>
+                <Tabs to="/account" exact >Logout</Tabs>
             </Toolbar>
         </Header>
     )

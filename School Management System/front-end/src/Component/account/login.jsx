@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
 
+import ImageURL from '../../Assets/Images/login.png'
+import { display } from '@mui/system';
+
 const Component = styled(Box)`
     width: 400px;
     margin-top: 50px;
@@ -81,7 +84,7 @@ const Login = ({ isUserAuthenticated }) => {
     const navigate = useNavigate();
     const { setAccount } = useContext(DataContext);
 
-    const imageURL = '../../Assets/Images/youtube.png';
+    //const imageURL = require('../../Assets/Images/youtube.png');
 
     useEffect(() => {
         showError(false);
@@ -129,8 +132,12 @@ const Login = ({ isUserAuthenticated }) => {
 
     return (
         <Component>
-            {/* <<imageURL />> */}
+           
             <Box>
+                {/* <ImageURL /> */}
+                {/* <Image src={imageURL} alt="logo" /> */}
+                <div style={{display: 'flex',alignContent: 'center', justifyContent: 'center', paddingTop: '10px'}}><img src={ImageURL} style={{width: '40%'}} /></div>
+                
                 {
                     account === 'login' ?
                         <Wrapper>
