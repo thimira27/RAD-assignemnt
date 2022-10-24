@@ -4,10 +4,12 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import Routes from './server/route.js';
-import StudentRoutes from './server/student.js'
-import BookRoutes from './server/book.js'
-import TeacherRoutes from './server/teacher.js'
-import SubjectRoutes from './server/subject.js'
+import StudentRoutes from './server/student.js';
+import BookRoutes from './server/book.js';
+import TeacherRoutes from './server/teacher.js';
+import SubjectRoutes from './server/subject.js';
+import LabItemRoutes from './server/labitem.js';
+
 
 import Connection from './database/db.js';
 
@@ -16,9 +18,7 @@ const app = express();
 
 dotenv.config();
 
-// To handle HTTP POST requests in Express.js version 4 and above, 
-// you need to install the middleware module called body-parser.
-// body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
+
 app.use(bodyParser.json({extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
@@ -28,6 +28,8 @@ app.use('/student', StudentRoutes);
 app.use('/book', BookRoutes);
 app.use('/teacher', TeacherRoutes);
 app.use('/subject', SubjectRoutes);
+app.use('/labitem', LabItemRoutes);
+
 
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;

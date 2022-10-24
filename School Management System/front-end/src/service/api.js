@@ -91,6 +91,23 @@ export const editSubject = async (id, subject) => {
 }
 
 
+export const addLabItem = async (labitem) => {
+    return await axios.post(`${usersUrl}/labitem/addLabItem`, labitem);
+}
+
+export const getLabItems = async (id) => {
+    id = id || '';
+    return await axios.get(`${usersUrl}/labitem/labitems/${id}`);
+}
+
+export const deleteLabItem = async (id) => {
+    return await axios.delete(`${usersUrl}/labitem/${id}`);
+}
+
+export const editLabItem = async (id, labitem) => {
+    return await axios.put(`${usersUrl}/labitem/${id}`, labitem)
+}
+
 const axiosInstance = axios.create({
     baseURL: usersUrl,
     timeout: 10000, 

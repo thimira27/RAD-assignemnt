@@ -19,7 +19,7 @@ const NavBar = () => {
     return (
         <Header position="static">
             <Toolbar>
-                <Tabs to="/" exact>XtremeFocus</Tabs>
+                <Tabs to="/" exact>School</Tabs>
                 <Tabs to="/lab_items" exact>Lab Items</Tabs>
                 <Tabs to="/addlabitems" exact>Add Lab Items</Tabs>
                 <Tabs to="/account" exact>Logout</Tabs>

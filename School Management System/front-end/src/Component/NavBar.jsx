@@ -21,7 +21,6 @@ const NavBar = () => {
             <Toolbar>
                 <Tabs to="/" exact>XtremeFocus</Tabs>
                 <Tabs to="/account" exact>Logout</Tabs>
-                
             </Toolbar>
         </Header>
     )
