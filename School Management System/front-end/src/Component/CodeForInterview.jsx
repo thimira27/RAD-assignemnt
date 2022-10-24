@@ -50,7 +50,7 @@ const CodeForInterview = () => {
                 
                 <BoxContent>
                     <Image src={Lab} style={{width: '65.5%', marginLeft: '5px'}} />
-                    <Button color="primary" variant="contained" component={Link} to={`/labs`} >Lab</Button>
+                    <Button color="primary" variant="contained" component={Link} to={`/lab_items`} >Lab</Button>
                 </BoxContent>
                 <BoxContent>
                     <Image src={Book} style={{width: '65.5%', marginLeft: '5px'}} />
