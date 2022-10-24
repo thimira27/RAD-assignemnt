@@ -1,9 +1,16 @@
 
+import { Box, Typography, styled, Button } from '@mui/material';
 
-import { Box, Typography, styled } from '@mui/material';
+import Student from '../Assets/Images/student.png';
+import Teacher from '../Assets/Images/teacher.png';
+import Book from '../Assets/Images/book.png';
+import Subject from '../Assets/Images/subject.png';
+import Lab from '../Assets/Images/lab.png';
 
-import Youtube from '../Assets/Images/youtube.png';
+import { Link } from 'react-router-dom';
+
 import InstaTele from '../Assets/Images/InstaTele.jpeg';
+import { red } from '@mui/material/colors';
 
 const Header = styled(Box)`
     margin: 50px;
@@ -13,18 +20,47 @@ const Header = styled(Box)`
 `;
 
 const Image = styled('img')({
-    width: '50%',
-    height: '50%'
+    width: '%100',
+    height: '100%'
 });
 
-const CodeForInterview = () => {
+const BoxContent = styled('div')({
+   
+    height: '100%',
+    width: '220px',
+    marginLeft: '20px',
+    display: 'flex', 
+    justifyContent: 'center',
+   
+})
 
+const CodeForInterview = () => {
     return (
         <Header>
-            <Typography variant="h4">Code for Interview</Typography>
-            <Box style={{display: 'flex'}}>
-                <Image src={Youtube} />
-                <Image src={InstaTele} />
+            {/* <Typography variant="h4">Code for Interview</Typography> */}
+            <Box style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <BoxContent>
+                    <Image  src={Student} style={{width: '65.5%', marginLeft: '5px'}} />
+                    <Button color="primary" variant="contained" component={Link} to={`/students`} >Student</Button>
+                </BoxContent>
+                <BoxContent>
+                    <Image src={Teacher} style={{width: '65.5%', marginLeft: '5px'}} />
+                    <Button color="primary" variant="contained" component={Link} to={`/teachers`} >Teacher</Button>
+                </BoxContent>
+                
+                <BoxContent>
+                    <Image src={Lab} style={{width: '65.5%', marginLeft: '5px'}} />
+                    <Button color="primary" variant="contained" component={Link} to={`/labs`} >Lab</Button>
+                </BoxContent>
+                <BoxContent>
+                    <Image src={Book} style={{width: '65.5%', marginLeft: '5px'}} />
+                    <Button color="primary" variant="contained" component={Link} to={`/books`} >Book</Button>
+                </BoxContent>
+                <BoxContent>
+                    <Image src={Subject} style={{width: '65.5%', marginLeft: '5px'}} />
+                    <Button color="primary" variant="contained" component={Link} to={`/subjects`} >Subject</Button>
+                </BoxContent>
+                {/* <Image src={InstaTele} /> */}
             </Box>
         </Header>
     )
