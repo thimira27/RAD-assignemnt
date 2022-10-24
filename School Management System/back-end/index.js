@@ -21,6 +21,7 @@ app.use(cors());
 
 app.use('/', Routes);
 app.use('/student', StudentRoutes);
+app.use('/book', StudentRoutes);
 
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;

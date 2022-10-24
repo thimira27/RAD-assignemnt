@@ -43,6 +43,19 @@ export const addBook = async (book) => {
     return await axios.post(`${usersUrl}/addBook`, book);
 }
 
+export const getBooks = async (id) => {
+    id = id || '';
+    return await axios.get(`${usersUrl}/book/all/${id}`);
+}
+
+export const deleteBook = async (id) => {
+    return await axios.delete(`${usersUrl}/book/${id}`);
+}
+
+export const editBook = async (id, book) => {
+    return await axios.put(`${usersUrl}/book/${id}`, book)
+}
+
 const axiosInstance = axios.create({
     baseURL: usersUrl,
     timeout: 10000, 
