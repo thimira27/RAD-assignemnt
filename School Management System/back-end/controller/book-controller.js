@@ -29,7 +29,7 @@ export const getBooks = async (request, response) => {
 // Get a user by id
 export const getBookById = async (request, response) => {
     try{
-        const book = await User.findById(request.params.id);
+        const book = await Book.findById(request.params.id);
         response.status(200).json(book);
     }catch( error ){
         response.status(404).json({ message: error.message })

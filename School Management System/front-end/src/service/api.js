@@ -40,12 +40,12 @@ export const editStudent = async (id, student) => {
 }
 
 export const addBook = async (book) => {
-    return await axios.post(`${usersUrl}/addBook`, book);
+    return await axios.post(`${usersUrl}/book/addBook`, book);
 }
 
 export const getBooks = async (id) => {
     id = id || '';
-    return await axios.get(`${usersUrl}/book/all/${id}`);
+    return await axios.get(`${usersUrl}/book/books/${id}`);
 }
 
 export const deleteBook = async (id) => {

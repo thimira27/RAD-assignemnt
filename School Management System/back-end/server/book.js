@@ -6,10 +6,10 @@ import { authenticateToken, createNewToken } from '../controller/jwt-controller.
 const router = express.Router();
 
 //router.get('/', getStudents);
-router.get('/all', getBooks);
+router.get('/books', getBooks);
 router.post('/addBook', addBook);
 router.delete('/:id', deleteBook);
 router.put('/:id', editBook);
-router.get('/all/:id', getBookById);
+router.get('/books/:id', getBookById);
 
 export default router;

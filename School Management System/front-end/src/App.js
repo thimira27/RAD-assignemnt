@@ -16,18 +16,18 @@ import AllStudents from './Component/C_student/AllStudents';
 import AddStudent from './Component/C_student/AddStudent';
 import EditStudent from './Component/C_student/EditStudent';
 
-import AllTeachers from './Component/C_teacher/AllTeachers';
-import AddTeacher from './Component/C_teacher/AddTeacher';
-import EditTeacher from './Component/C_teacher/EditTeacher';
+// import AllTeachers from './Component/C_teacher/AllTeachers';
+// import AddTeacher from './Component/C_teacher/AddTeacher';
+// import EditTeacher from './Component/C_teacher/EditTeacher';
 
-import AllSubjects from './Component/C_subject/AllSubjects';
-import AddSubjects from './Component/C_subject/AddSubject';
-import EditSubject from './Component/C_subject/EditSubject';
+// import AllSubjects from './Component/C_subject/AllSubjects';
+// import AddSubjects from './Component/C_subject/AddSubject';
+// import EditSubject from './Component/C_subject/EditSubject';
 
 
-import AllLabs from './Component/C_lab/AllLabs';
-import AddLab from './Component/C_lab/AddLab';
-import EditLab from './Component/C_lab/EditLab';
+// import AllLabs from './Component/C_lab/AllLabs';
+// import AddLab from './Component/C_lab/AddLab';
+// import EditLab from './Component/C_lab/EditLab';
 
 
 import AllBooks from './Component/C_book/AllBooks';
@@ -87,7 +87,7 @@ function App() {
         </Route>
 
         
-        <Route path='/teachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+        {/* <Route path='/teachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/teachers" element={<><TeacherNavBar /><AllTeachers/></>} />
         </Route>
         <Route path='/addteachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
@@ -116,7 +116,7 @@ function App() {
         <Route path='/editLabItem/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/editLabItem/:id" element={ <><LabNavBar /><EditLab /></> } />
         </Route>
-        
+         */}
         
         <Route path='/*' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path='/*' element={<NotFound />} />
