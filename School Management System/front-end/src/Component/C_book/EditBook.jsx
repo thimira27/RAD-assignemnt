@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getBooks, editBook } from '../../Service/api';
+import { getBooks, editBook } from '../../service/api';
 
 const initialValue = {
     name: '',
@@ -36,7 +36,7 @@ const EditBook = () => {
 
     const editBookDetails = async() => {
         const response = await editBook(id, book);
-        navigate('/all');
+        navigate('/books');
     }
 
     const onValueChange = (e) => {

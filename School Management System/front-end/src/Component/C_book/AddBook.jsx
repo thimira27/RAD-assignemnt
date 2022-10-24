@@ -29,7 +29,7 @@ const AddBook = () => {
 
     const addBookDetails = async() => {
         await addBook(book);
-        navigate('/all');
+        navigate('/books');
     }
 
     return (
