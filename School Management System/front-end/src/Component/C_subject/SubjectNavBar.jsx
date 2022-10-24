@@ -21,7 +21,7 @@ const NavBar = () => {
             <Toolbar>
                 <Tabs to="/" exact>School</Tabs>
                 <Tabs to="/subjects" exact>All Subjects</Tabs>
-                <Tabs to="/add_subjects" exact>Add Subject</Tabs>
+                <Tabs to="/add_subject" exact>Add Subject</Tabs>
             </Toolbar>
         </Header>
     )
