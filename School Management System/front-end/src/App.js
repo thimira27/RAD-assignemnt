@@ -20,9 +20,9 @@ import AllTeachers from './Component/C_teacher/AllTeachers';
 import AddTeacher from './Component/C_teacher/AddTeacher';
 import EditTeacher from './Component/C_teacher/EditTeacher';
 
-// import AllSubjects from './Component/C_subject/AllSubjects';
-// import AddSubjects from './Component/C_subject/AddSubject';
-// import EditSubject from './Component/C_subject/EditSubject';
+import AllSubjects from './Component/C_subject/AllSubjects';
+import AddSubjects from './Component/C_subject/AddSubject';
+import EditSubject from './Component/C_subject/EditSubject';
 
 
 // import AllLabs from './Component/C_lab/AllLabs';
@@ -97,17 +97,17 @@ function App() {
             <Route path="/editTeacher/:id" element={ <><TeacherNavBar /><EditTeacher /></> } />
         </Route>
         
-        {/*<Route path='/subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+        <Route path='/subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/subjects" element={<><SubjectNavBar /><AllSubjects /></>} />
         </Route>
-        <Route path='/add_subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/add_subjects" element={<><SubjectNavBar /><AddSubjects /></>} />
+        <Route path='/add_subject' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/add_subject" element={<><SubjectNavBar /><AddSubjects /></>} />
         </Route>
-        <Route path='/editSubject/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/editSubject/:id" element={ <><SubjectNavBar /><EditSubject /></> } />
+        <Route path='/edit_Subject/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/edit_Subject/:id" element={ <><SubjectNavBar /><EditSubject /></> } />
         </Route>
 
-        <Route path='/lab_items' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+        {/*<Route path='/lab_items' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/lab_items" element={<><LabNavBar /><AllLabs /></>} />
         </Route>
         <Route path='/addlabitems' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >

@@ -7,6 +7,7 @@ import Routes from './server/route.js';
 import StudentRoutes from './server/student.js'
 import BookRoutes from './server/book.js'
 import TeacherRoutes from './server/teacher.js'
+import SubjectRoutes from './server/subject.js'
 
 import Connection from './database/db.js';
 
@@ -26,6 +27,7 @@ app.use('/', Routes);
 app.use('/student', StudentRoutes);
 app.use('/book', BookRoutes);
 app.use('/teacher', TeacherRoutes);
+app.use('/subject', SubjectRoutes);
 
 const USERNAME = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
