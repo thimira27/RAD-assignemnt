@@ -2,6 +2,8 @@ import { useState } from 'react';
 import AllUsers from './Component/AllUsers';
 import AddUser from './Component/AddUser';
 import EditUser from './Component/EditUser';
+
+
 import NavBar from './Component/NavBar';
 import StudentNavBar from './Component/C_student/StudentNavBar';
 import BookNavBar from './Component/C_book/BookNavBar';
@@ -14,16 +16,29 @@ import AllStudents from './Component/C_student/AllStudents';
 import AddStudent from './Component/C_student/AddStudent';
 import EditStudent from './Component/C_student/EditStudent';
 
-import AllTeachers from './Component/C_teacher/AllTeachers';
-import AllSubjects from './Component/C_subject/AllSubjects';
-import AllLabs from './Component/C_lab/AllLabs';
+// import AllTeachers from './Component/C_teacher/AllTeachers';
+// import AddTeacher from './Component/C_teacher/AddTeacher';
+// import EditTeacher from './Component/C_teacher/EditTeacher';
+
+// import AllSubjects from './Component/C_subject/AllSubjects';
+// import AddSubjects from './Component/C_subject/AddSubject';
+// import EditSubject from './Component/C_subject/EditSubject';
+
+
+// import AllLabs from './Component/C_lab/AllLabs';
+// import AddLab from './Component/C_lab/AddLab';
+// import EditLab from './Component/C_lab/EditLab';
+
+
 import AllBooks from './Component/C_book/AllBooks';
 import AddBook from './Component/C_book/AddBook';
+
 import NotFound from './Component/NotFound'; 
 import CodeForInterview from './Component/CodeForInterview';
 import Login from './Component/account/login';
 import { BrowserRouter, Routes, Route ,Navigate, Outlet} from 'react-router-dom';
 import DataProvider from './context/DataProvider';
+import EditBook from './Component/C_book/EditBook';
 
 const PrivateRoute = ({ isAuthenticated, ...props }) => {
   const token = sessionStorage.getItem('accessToken');
@@ -60,26 +75,49 @@ function App() {
         <Route path='/editStudent/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/editStudent/:id" element={ <><StudentNavBar/><EditStudent /></> } />
         </Route>
-        
-        
-        <Route path='/teachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/teachers" element={<TeacherNavBar />} />
-            <Route path="/teachers" element={<AllTeachers /> } />
-        </Route>
-        <Route path='/subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/subjects" element={<SubjectNavBar />} />
-            <Route path="/subjects" element={<AllSubjects /> } />
-        </Route>
-        <Route path='/labs' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
-            <Route path="/labs" element={<LabNavBar />} />
-            <Route path="/labs" element={<AllLabs /> } />
-        </Route>
+
         <Route path='/books' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/books" element={<><BookNavBar /><AllBooks /></>} />
         </Route>
         <Route path='/addBook' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/addBook" element={<><BookNavBar /><AddBook /></>} />
         </Route>
+        <Route path='/editBook/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/editBook/:id" element={ <><BookNavBar /><EditBook /></> } />
+        </Route>
+
+        
+        {/* <Route path='/teachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/teachers" element={<><TeacherNavBar /><AllTeachers/></>} />
+        </Route>
+        <Route path='/addteachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/addteachers" element={<><TeacherNavBar /><AddTeacher/></>} />
+        </Route>
+        <Route path='/editTeacher/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/editTeacher/:id" element={ <><TeacherNavBar /><EditTeacher /></> } />
+        </Route>
+
+        <Route path='/subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/subjects" element={<><SubjectNavBar /><AllSubjects /></>} />
+        </Route>
+        <Route path='/add_subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/add_subjects" element={<><SubjectNavBar /><AddSubjects /></>} />
+        </Route>
+        <Route path='/editSubject/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/editSubject/:id" element={ <><SubjectNavBar /><EditSubject /></> } />
+        </Route>
+
+        <Route path='/lab_items' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/lab_items" element={<><LabNavBar /><AllLabs /></>} />
+        </Route>
+        <Route path='/addlabitems' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/addlabitems" element={<><LabNavBar /><AddLab/></>} />
+        </Route>
+        <Route path='/editLabItem/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+            <Route path="/editLabItem/:id" element={ <><LabNavBar /><EditLab /></> } />
+        </Route>
+         */}
+        
         <Route path='/*' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path='/*' element={<NotFound />} />
         </Route>
