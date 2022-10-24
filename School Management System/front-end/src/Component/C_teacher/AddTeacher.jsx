@@ -1,6 +1,6 @@
 import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
-import { addTeacher } from '../../Service/api';
+import { addTeacher } from '../../service/api';
 import { useNavigate } from 'react-router-dom';
 
 const initialValue = {
@@ -29,8 +29,8 @@ const AddTeacher = () => {
     }
 
     const addTeacherDetails = async() => {
-        await addTeacher(user);
-        navigate('/all');
+        await addTeacher(teacher);
+        navigate('/teachers');
     }
 
     return (

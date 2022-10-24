@@ -3,10 +3,10 @@ import { addTeacher, deleteTeacher, getTeachers,editTeacher,getTeacherById} from
 
 const router = express.Router();
 
-router.get('/teacher', getTeachers);
+router.get('/teachers', getTeachers);
 router.post('/addTeacher', addTeacher);
 router.delete('/:id', deleteTeacher);
 router.put('/:id', editTeacher);
-router.get('/teacher/:id', getTeacherById);
+router.get('/teachers/:id', getTeacherById);
 
 export default router;

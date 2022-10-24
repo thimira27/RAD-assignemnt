@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getTeachers, editTeacher } from '../../Service/api';
+import { getTeachers, editTeacher } from '../../service/api';
 
 const initialValue = {
     name: '',
@@ -27,7 +27,7 @@ const EditTeacher = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        loadUserDetails();
+        loadTeacherDetails();
     }, []);
 
     const loadTeacherDetails = async() => {
@@ -37,7 +37,7 @@ const EditTeacher = () => {
 
     const editTeacherDetails = async() => {
         const response = await editTeacher(id, teacher);
-        navigate('/all');
+        navigate('/teachers');
     }
 
     const onValueChange = (e) => {

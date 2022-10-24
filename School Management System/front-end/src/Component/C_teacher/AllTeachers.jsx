@@ -53,7 +53,7 @@ const AllTeachers = () => {
                 </THead>
             </TableHead>
             <TableBody>
-                {users.map((teacher) => (
+                {teachers.map((teacher) => (
                     <TRow key={teacher.id}>
                         <TableCell>{teacher._id}</TableCell> {/* change it to user.id to use JSON Server */}
                         <TableCell>{teacher.name}</TableCell>
