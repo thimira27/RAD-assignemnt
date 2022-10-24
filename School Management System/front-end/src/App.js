@@ -16,9 +16,9 @@ import AllStudents from './Component/C_student/AllStudents';
 import AddStudent from './Component/C_student/AddStudent';
 import EditStudent from './Component/C_student/EditStudent';
 
-// import AllTeachers from './Component/C_teacher/AllTeachers';
-// import AddTeacher from './Component/C_teacher/AddTeacher';
-// import EditTeacher from './Component/C_teacher/EditTeacher';
+import AllTeachers from './Component/C_teacher/AllTeachers';
+import AddTeacher from './Component/C_teacher/AddTeacher';
+import EditTeacher from './Component/C_teacher/EditTeacher';
 
 // import AllSubjects from './Component/C_subject/AllSubjects';
 // import AddSubjects from './Component/C_subject/AddSubject';
@@ -87,7 +87,7 @@ function App() {
         </Route>
 
         
-        {/* <Route path='/teachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+        <Route path='/teachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/teachers" element={<><TeacherNavBar /><AllTeachers/></>} />
         </Route>
         <Route path='/addteachers' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
@@ -96,8 +96,8 @@ function App() {
         <Route path='/editTeacher/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/editTeacher/:id" element={ <><TeacherNavBar /><EditTeacher /></> } />
         </Route>
-
-        <Route path='/subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
+        
+        {/*<Route path='/subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >
             <Route path="/subjects" element={<><SubjectNavBar /><AllSubjects /></>} />
         </Route>
         <Route path='/add_subjects' element={<PrivateRoute isAuthenticated={isAuthenticated} />} >

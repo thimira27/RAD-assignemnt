@@ -56,6 +56,23 @@ export const editBook = async (id, book) => {
     return await axios.put(`${usersUrl}/book/${id}`, book)
 }
 
+export const addTeacher = async (teacher) => {
+    return await axios.post(`${usersUrl}/teacher/addTeacher`, teacher);
+}
+
+export const getTeachers = async (id) => {
+    id = id || '';
+    return await axios.get(`${usersUrl}/teacher/teachers/${id}`);
+}
+
+export const deleteTeacher = async (id) => {
+    return await axios.delete(`${usersUrl}/teacher/${id}`);
+}
+
+export const editTeacher = async (id, teacher) => {
+    return await axios.put(`${usersUrl}/teacher/${id}`, teacher)
+}
+
 const axiosInstance = axios.create({
     baseURL: usersUrl,
     timeout: 10000, 

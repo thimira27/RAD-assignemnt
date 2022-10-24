@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getUsers, editUser } from '../Service/api';
+import { getTeachers, editTeacher } from '../../service/api';
 
 const initialValue = {
     name: '',
-    username: '',
-    email: '',
-    phone: ''
+    phone: '',
+    exyears: '',
+    age: '',
+    sub: ''
 }
 
 const Container = styled(FormGroup)`
@@ -18,56 +19,60 @@ const Container = styled(FormGroup)`
         margin-top: 20px
 `;
 
-const EditUser = () => {
-    const [user, setUser] = useState(initialValue);
-    const { name, username, email, phone } = user;
+const EditTeacher = () => {
+    const [teacher, setTeacher] = useState(initialValue);
+    const { name, phone, exyears, age, sub } = teacher;
     const { id } = useParams();
     
     let navigate = useNavigate();
 
     useEffect(() => {
-        loadUserDetails();
+        loadTeacherDetails();
     }, []);
 
-    const loadUserDetails = async() => {
-        const response = await getUsers(id);
-        setUser(response.data);
+    const loadTeacherDetails = async() => {
+        const response = await getTeachers(id);
+        setTeacher(response.data);
     }
 
-    const editUserDetails = async() => {
-        const response = await editUser(id, user);
-        navigate('/all');
+    const editTeacherDetails = async() => {
+        const response = await editTeacher(id, teacher);
+        navigate('/teachers');
     }
 
     const onValueChange = (e) => {
         console.log(e.target.value);
-        setUser({...user, [e.target.name]: e.target.value})
+        setTeacher({...teacher, [e.target.name]: e.target.value})
     }
 
     return (
         <Container injectFirst>
             <Typography variant="h4">Edit Information</Typography>
             <FormControl>
-                <InputLabel htmlFor="my-input">Name</InputLabel>
+                <InputLabel htmlFor="my-input">Full Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <InputLabel htmlFor="my-input">Username</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Email</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Phone</InputLabel>
+                <InputLabel htmlFor="my-input">Contact Number</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" aria-describedby="my-helper-text" />
             </FormControl>
             <FormControl>
-                <Button variant="contained" color="primary" onClick={() => editUserDetails()}>Edit User</Button>
+                <InputLabel htmlFor="my-input">Years of Experience</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='exyears' value={exyears} id="my-input" aria-describedby="my-helper-text" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">age</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='age' value={age} id="my-input" aria-describedby="my-helper-text" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">Subject/Profession</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} name='sub' value={sub} id="my-input" aria-describedby="my-helper-text" />
+            </FormControl>
+            <FormControl>
+                <Button variant="contained" color="primary" onClick={() => editTeacherDetails()}>Edit Teacher</Button>
             </FormControl>
         </Container>
     )
 }
 
-export default EditUser;
+export default EditTeacher;
