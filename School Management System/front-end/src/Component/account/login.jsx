@@ -99,29 +99,40 @@ const Login = ({ isUserAuthenticated }) => {
     }
 
     const loginUser = async () => {
-        let response = await API.userLogin(login);
-        if (response.isSuccess) {
-            showError('');
+        
+        try {
+            let response = await API.userLogin(login);
+            if (response.isSuccess) {
+                showError('');
 
-            sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
-            sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
-            setAccount({ name: response.data.name, username: response.data.username });
+                sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
+                sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
+                setAccount({ name: response.data.name, username: response.data.username });
             
-            isUserAuthenticated(true)
-            setLogin(loginInitialValues);
-            navigate('/');
-        } else {
-            showError('Something went wrong! please try again later');
-        }
+                isUserAuthenticated(true)
+                setLogin(loginInitialValues);
+                navigate('/');
+            } else {
+                showError('Something went wrong! please try again later');
+            }
+            } catch (error) {
+                showError('Something went wrong! please try again later');   
+            }
+        
+        
     }
 
     const signupUser = async () => {
-        let response = await API.userSignup(signup);
-        if (response.isSuccess) {
-            showError('');
-            setSignup(signupInitialValues);
-            toggleAccount('login');
-        } else {
+        try {
+            let response = await API.userSignup(signup);
+            if (response.isSuccess) {
+                showError('');
+                setSignup(signupInitialValues);
+                toggleAccount('login');
+            } else {
+                showError('Something went wrong! please try again later');
+            }
+        } catch (error) {
             showError('Something went wrong! please try again later');
         }
     }
@@ -140,7 +151,7 @@ const Login = ({ isUserAuthenticated }) => {
                     account === 'login' ?
                         <Wrapper>
                             <TextField variant="standard" value={login.username} onChange={(e) => onValueChange(e)} name='username' label='Enter Username' />
-                            <TextField variant="standard" value={login.password} onChange={(e) => onValueChange(e)} name='password' label='Enter Password' />
+                            <TextField variant="standard" type='password' value={login.password} onChange={(e) => onValueChange(e)} name='password' label='Enter Password' />
 
                             {error && <Error>{error}</Error>}
 
@@ -149,9 +160,9 @@ const Login = ({ isUserAuthenticated }) => {
                             <SignupButton onClick={() => toggleSignup()} style={{ marginBottom: 50 }}>Create an account</SignupButton>
                         </Wrapper> :
                         <Wrapper>
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='name' label='Enter Name' />
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='username' label='Enter Username' />
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
+                            <TextField variant="standard" value={signup.name} onChange={(e) => onInputChange(e)} name='name' label='Enter Name' />
+                            <TextField variant="standard" value={signup.username} onChange={(e) => onInputChange(e)} name='username' label='Enter Username' />
+                            <TextField variant="standard" type='password' onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
 
                             <SignupButton onClick={() => signupUser()} >Signup</SignupButton>
                             <Text style={{ textAlign: 'center' }}>OR</Text>
