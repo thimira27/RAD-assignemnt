@@ -1,7 +1,5 @@
 import express from 'express';
-import { addStudent, deleteStudent, getStudents,editStudent,getStudentById} from '../controller/student-controller.js';
-import { loginUser, singupUser, logoutUser } from '../controller/user-controller.js';
-import { authenticateToken, createNewToken } from '../controller/jwt-controller.js';
+import { addStudent, deleteStudent, getStudents, editStudent, getStudentById } from '../controller/student-controller.js';
 
 const router = express.Router();
 

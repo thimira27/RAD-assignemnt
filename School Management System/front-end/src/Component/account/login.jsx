@@ -7,7 +7,7 @@ import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
 
 import ImageURL from '../../Assets/Images/login.png'
-import { display } from '@mui/system';
+
 
 const Component = styled(Box)`
     width: 400px;
@@ -134,8 +134,6 @@ const Login = ({ isUserAuthenticated }) => {
         <Component>
            
             <Box>
-                {/* <ImageURL /> */}
-                {/* <Image src={imageURL} alt="logo" /> */}
                 <div style={{display: 'flex',alignContent: 'center', justifyContent: 'center', paddingTop: '10px'}}><img src={ImageURL} style={{width: '40%'}} /></div>
                 
                 {

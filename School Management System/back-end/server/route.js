@@ -1,7 +1,4 @@
 import express from 'express';
-import { getUsers, addUser, getUserById, editUser, deleteUser } from '../controller/people-controller.js';
-//import { addStudent, deleteStudent, getStudents,e} from '../controller/student-controller.js';
-import { addBook} from '../controller/book-controller.js';
 import { loginUser, singupUser, logoutUser } from '../controller/user-controller.js';
 import { authenticateToken, createNewToken } from '../controller/jwt-controller.js';
 
