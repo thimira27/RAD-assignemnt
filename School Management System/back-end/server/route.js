@@ -10,21 +10,5 @@ router.post('/logout', logoutUser);
 
 router.post('/token', createNewToken);
 
-//router.get('/', getUsers);
-// router.post('/add', addUser);
-// //router.get('/user:id', getUserById);
-// router.put('/:id', editUser);
-// router.delete('/:id', deleteUser);
-
-
-//router.get('/', getStudents);
-
-//router.get('/', getUsers);
-// router.get('/student', getStudents);
-// router.post('/addStudent', addStudent);
-// router.delete('/:id', deleteStudent);
-
-
-// router.post('/addBook', addBook);
 
 export default router;

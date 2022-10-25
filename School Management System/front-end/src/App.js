@@ -1,7 +1,4 @@
 import { useState } from 'react';
-import AllUsers from './Component/AllUsers';
-import AddUser from './Component/AddUser';
-import EditUser from './Component/EditUser';
 
 
 import NavBar from './Component/NavBar';
