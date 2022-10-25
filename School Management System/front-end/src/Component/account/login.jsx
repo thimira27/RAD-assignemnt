@@ -11,8 +11,8 @@ import { display } from '@mui/system';
 
 const Component = styled(Box)`
     width: 400px;
-    margin-top: 50px;
-    margin-left: 450px;
+    margin: auto;
+    margin-top: 100px;
     box-shadow: 5px 2px 5px 2px rgb(0 0 0/ 0.6);
 `;
 
