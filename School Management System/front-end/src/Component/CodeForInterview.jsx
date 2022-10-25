@@ -9,9 +9,6 @@ import Lab from '../Assets/Images/lab.png';
 
 import { Link } from 'react-router-dom';
 
-import InstaTele from '../Assets/Images/InstaTele.jpeg';
-import { red } from '@mui/material/colors';
-
 const Header = styled(Box)`
     margin: 50px;
     & > div {
@@ -60,7 +57,6 @@ const CodeForInterview = () => {
                     <Image src={Subject} style={{width: '65.5%', marginLeft: '5px'}} />
                     <Button color="primary" variant="contained" component={Link} to={`/subjects`} >Subject</Button>
                 </BoxContent>
-                {/* <Image src={InstaTele} /> */}
             </Box>
         </Header>
     )
